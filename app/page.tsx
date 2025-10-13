@@ -1,33 +1,20 @@
 "use client";
 
 import { LoadingPage } from "@/components/LoadingPage";
-import { Navbar } from "@/components/Navbar";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export default function Home() {
-  const [showContent, setShowContent] = useState(false);
+export default function LandingPage() {
+  const router = useRouter();
 
   useEffect(() => {
+    // Redirect to /home after 3.5 seconds
     const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 7000);
+      router.push("/home");
+    }, 3500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [router]);
 
-  return (
-    <>
-      <LoadingPage />
-      
-      {showContent && (
-        <>
-          <Navbar />
-          
-          <main className="relative z-20">
-            {/* Your content sections will go here */}
-          </main>
-        </>
-      )}
-    </>
-  );
+  return <LoadingPage />;
 }

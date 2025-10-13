@@ -32,12 +32,19 @@ export function GooeyText({
 
     const setMorph = (fraction: number) => {
       if (text1Ref.current && text2Ref.current) {
-        text2Ref.current.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-        text2Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+        // Smoother easing function
+        const easedFraction = fraction < 0.5 
+          ? 2 * fraction * fraction 
+          : 1 - Math.pow(-2 * fraction + 2, 2) / 2;
+        
+        const blur = Math.min(6 / easedFraction - 6, 50);
+        text2Ref.current.style.filter = `blur(${Math.max(0, blur)}px)`;
+        text2Ref.current.style.opacity = `${Math.pow(easedFraction, 0.3) * 100}%`;
 
-        fraction = 1 - fraction;
-        text1Ref.current.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-        text1Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+        const reverseFraction = 1 - easedFraction;
+        const reverseBlur = Math.min(6 / reverseFraction - 6, 50);
+        text1Ref.current.style.filter = `blur(${Math.max(0, reverseBlur)}px)`;
+        text1Ref.current.style.opacity = `${Math.pow(reverseFraction, 0.3) * 100}%`;
       }
     };
 
@@ -70,7 +77,7 @@ export function GooeyText({
       animationId = requestAnimationFrame(animate);
       const newTime = new Date();
       const shouldIncrementIndex = cooldown > 0;
-      const dt = (newTime.getTime() - time.getTime()) / 1000;
+      const dt = Math.min((newTime.getTime() - time.getTime()) / 1000, 0.1); // Cap dt to prevent jumps
       time = newTime;
 
       cooldown -= dt;
@@ -87,6 +94,7 @@ export function GooeyText({
               text2Ref.current.style.opacity = "0%";
               text1Ref.current.style.opacity = "100%";
               text1Ref.current.style.filter = "";
+              text2Ref.current.style.filter = "";
             }
             return;
           }
@@ -136,22 +144,24 @@ export function GooeyText({
         className="flex items-center justify-center"
         style={{ filter: "url(#threshold)" }}
       >
-        <span
-          ref={text1Ref}
-          className={cn(
-            "absolute inline-block select-none text-center text-4xl md:text-5xl lg:text-6xl",
-            "text-foreground",
-            textClassName
-          )}
-        />
-        <span
-          ref={text2Ref}
-          className={cn(
-            "absolute inline-block select-none text-center text-4xl md:text-5xl lg:text-6xl",
-            "text-foreground",
-            textClassName
-          )}
-        />
+      <span
+        ref={text1Ref}
+        className={cn(
+          "absolute inline-block select-none text-center text-3xl md:text-4xl lg:text-5xl",
+          "text-foreground will-change-[filter,opacity]",
+          textClassName
+        )}
+        style={{ transform: 'translateZ(0)' }}
+      />
+      <span
+        ref={text2Ref}
+        className={cn(
+          "absolute inline-block select-none text-center text-3xl md:text-4xl lg:text-5xl",
+          "text-foreground will-change-[filter,opacity]",
+          textClassName
+        )}
+        style={{ transform: 'translateZ(0)' }}
+      />
       </div>
     </div>
   );

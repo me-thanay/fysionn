@@ -1,28 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Crew", href: "#crew" }
+  { name: "Home", href: "/home" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Crew", href: "/crew" }
 ];
 
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("/");
 
-  const handleClick = (href: string) => {
-    const sectionId = href.replace("#", "");
-    setActiveSection(sectionId);
-    
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  useEffect(() => {
+    setActiveSection(pathname);
+  }, [pathname]);
 
   return (
     <nav className="fixed top-6 left-0 right-0 z-50 px-6 max-w-[95%] mx-auto">
@@ -31,30 +28,30 @@ export function Navbar() {
         
         <div className="relative px-8 py-4 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link href="/home" className="flex items-center space-x-3 transition-opacity hover:opacity-80">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center backdrop-blur-sm border border-white/20">
               <span className="text-white text-lg font-bold">F</span>
             </div>
             <span className="text-white text-xl font-bold tracking-wider">
               FYSION
             </span>
-          </div>
+          </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.name}
-                onClick={() => handleClick(link.href)}
+                href={link.href}
                 className={cn(
                   "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative",
-                  activeSection === link.href.replace("#", "")
+                  activeSection === link.href
                     ? "text-white bg-white/10"
                     : "text-gray-300 hover:text-white hover:bg-white/5"
                 )}
               >
                 {link.name}
-              </button>
+              </Link>
             ))}
           </div>
 
