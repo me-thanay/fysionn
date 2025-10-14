@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/cpu-animation.css";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 export const metadata: Metadata = {
   title: "FYSION",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </body>
     </html>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { TransitionLink } from "./TransitionLink";
 
 const navLinks = [
   { name: "Home", href: "/home" },
@@ -28,19 +28,19 @@ export function Navbar() {
         
         <div className="relative px-8 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/home" className="flex items-center space-x-3 transition-opacity hover:opacity-80">
+          <TransitionLink href="/home" className="flex items-center space-x-3 transition-opacity hover:opacity-80">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center backdrop-blur-sm border border-white/20">
               <span className="text-white text-lg font-bold">F</span>
             </div>
             <span className="text-white text-xl font-bold tracking-wider">
               FYSION
             </span>
-          </Link>
+          </TransitionLink>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <Link
+              <TransitionLink
                 key={link.name}
                 href={link.href}
                 className={cn(
@@ -51,7 +51,7 @@ export function Navbar() {
                 )}
               >
                 {link.name}
-              </Link>
+              </TransitionLink>
             ))}
           </div>
 

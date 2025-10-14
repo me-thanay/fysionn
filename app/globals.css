@@ -8,8 +8,29 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Lenis will handle smooth scrolling, so we remove scroll-behavior: smooth */
   overflow-x: hidden;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
@@ -49,6 +70,71 @@ body {
   
   .animation-delay-400 {
     animation-delay: 400ms;
+  }
+
+  /* GPU-Optimized Utilities */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .smooth-transform {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+
+  .smooth-opacity {
+    will-change: opacity;
+  }
+
+  /* Smooth Transitions - GPU-friendly */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+  }
+
+  .transition-smooth-fast {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+  }
+
+  .transition-smooth-slow {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+  }
+
+  /* Hover/Focus States - Hardware Accelerated */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px) translateZ(0);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0) scale(1);
+  }
+
+  .hover-scale:hover {
+    transform: translateZ(0) scale(1.05);
+  }
+
+  /* Prevent layout shift */
+  .contain-layout {
+    contain: layout;
+  }
+
+  .contain-paint {
+    contain: paint;
+  }
+
+  .contain-strict {
+    contain: strict;
   }
 }
 

@@ -6,6 +6,8 @@ import { GooeyText } from "@/components/GooeyText";
 import { BrandedText } from "@/components/BrandedText";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
+import { ScrollAnimation } from "@/components/ScrollAnimation";
+import { TransitionLink } from "@/components/TransitionLink";
 import { useState, useEffect, useMemo } from "react";
 
 export default function Home() {
@@ -75,38 +77,42 @@ export default function Home() {
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left - About Description */}
-              <div className="space-y-6 animate-fade-in-up">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                  About
-                </h2>
-                <div className="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
-                  <p className="hover:text-white transition-colors duration-300">
-                    Fysion is a creative digital agency dedicated to transforming 
-                    visions into reality through innovative design, cutting-edge 
-                    development, and strategic marketing.
-                  </p>
-                  <p className="hover:text-white transition-colors duration-300">
-                    We specialize in crafting digital experiences that not only 
-                    look stunning but also drive measurable results for our clients.
-                  </p>
-                  <p className="hover:text-white transition-colors duration-300">
-                    From web design and development to comprehensive digital marketing 
-                    strategies, we bring together creativity, technology, and data-driven 
-                    insights to help businesses thrive in the digital landscape.
-                  </p>
-                  <p className="hover:text-white transition-colors duration-300">
-                    Our team is passionate about pushing boundaries and creating 
-                    solutions that make a lasting impact.
-                  </p>
+              <ScrollAnimation animation="fade-right" scrub={1}>
+                <div className="space-y-6">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                    About
+                  </h2>
+                  <div className="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
+                    <p className="hover:text-white transition-colors duration-300">
+                      Fysion is a creative digital agency dedicated to transforming 
+                      visions into reality through innovative design, cutting-edge 
+                      development, and strategic marketing.
+                    </p>
+                    <p className="hover:text-white transition-colors duration-300">
+                      We specialize in crafting digital experiences that not only 
+                      look stunning but also drive measurable results for our clients.
+                    </p>
+                    <p className="hover:text-white transition-colors duration-300">
+                      From web design and development to comprehensive digital marketing 
+                      strategies, we bring together creativity, technology, and data-driven 
+                      insights to help businesses thrive in the digital landscape.
+                    </p>
+                    <p className="hover:text-white transition-colors duration-300">
+                      Our team is passionate about pushing boundaries and creating 
+                      solutions that make a lasting impact.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </ScrollAnimation>
 
               {/* Right - Branded Text Component */}
-              <div className="relative animate-fade-in-up animation-delay-200">
-                <div className="p-12 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 shadow-2xl hover:shadow-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.02]">
-                  <BrandedText />
+              <ScrollAnimation animation="fade-left" scrub={1}>
+                <div className="relative">
+                  <div className="p-12 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 shadow-2xl hover:shadow-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] smooth-transform">
+                    <BrandedText />
+                  </div>
                 </div>
-              </div>
+              </ScrollAnimation>
             </div>
           </div>
         </section>
@@ -114,58 +120,66 @@ export default function Home() {
         {/* Services Section - Minimal with Redirect */}
         <section className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-black">
           <div className="max-w-7xl mx-auto w-full">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
-              Our Services
-            </h2>
+            <ScrollAnimation animation="fade-up" scrub={1}>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+                Our Services
+              </h2>
+            </ScrollAnimation>
             
             <div className="grid md:grid-cols-3 gap-8">
               {/* Service 1 */}
-              <a href="/about" className="group">
-                <div className="p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] h-full">
-                  <div className="text-4xl mb-6">🎨</div>
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                    Design
-                  </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                    Creative solutions that capture attention and inspire action.
-                  </p>
-                  <div className="mt-6 text-white/50 group-hover:text-white transition-colors flex items-center gap-2">
-                    Learn More <span>→</span>
+              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
+                <TransitionLink href="/about" className="group block">
+                  <div className="p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] h-full smooth-transform">
+                    <div className="text-4xl mb-6">🎨</div>
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                      Design
+                    </h3>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                      Creative solutions that capture attention and inspire action.
+                    </p>
+                    <div className="mt-6 text-white/50 group-hover:text-white transition-colors flex items-center gap-2">
+                      Learn More <span>→</span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </TransitionLink>
+              </ScrollAnimation>
 
               {/* Service 2 */}
-              <a href="/about" className="group">
-                <div className="p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] h-full">
-                  <div className="text-4xl mb-6">💻</div>
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                    Development
-                  </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                    Robust code that brings your digital vision to life.
-                  </p>
-                  <div className="mt-6 text-white/50 group-hover:text-white transition-colors flex items-center gap-2">
-                    Learn More <span>→</span>
+              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
+                <TransitionLink href="/about" className="group block">
+                  <div className="p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] h-full smooth-transform">
+                    <div className="text-4xl mb-6">💻</div>
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                      Development
+                    </h3>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                      Robust code that brings your digital vision to life.
+                    </p>
+                    <div className="mt-6 text-white/50 group-hover:text-white transition-colors flex items-center gap-2">
+                      Learn More <span>→</span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </TransitionLink>
+              </ScrollAnimation>
 
               {/* Service 3 */}
-              <a href="/about" className="group">
-                <div className="p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] h-full">
-                  <div className="text-4xl mb-6">📈</div>
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                    Marketing
-                  </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                    Strategic campaigns that drive growth and engagement.
-                  </p>
-                  <div className="mt-6 text-white/50 group-hover:text-white transition-colors flex items-center gap-2">
-                    Learn More <span>→</span>
+              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
+                <TransitionLink href="/about" className="group block">
+                  <div className="p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] h-full smooth-transform">
+                    <div className="text-4xl mb-6">📈</div>
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                      Marketing
+                    </h3>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                      Strategic campaigns that drive growth and engagement.
+                    </p>
+                    <div className="mt-6 text-white/50 group-hover:text-white transition-colors flex items-center gap-2">
+                      Learn More <span>→</span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </TransitionLink>
+              </ScrollAnimation>
             </div>
           </div>
         </section>
@@ -173,20 +187,28 @@ export default function Home() {
         {/* How We Work Section - Animated Timeline */}
         <section className="relative min-h-screen flex items-center justify-center px-6 py-32 bg-black">
           <div className="max-w-6xl mx-auto w-full">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-24 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white">
-              Our Process
-            </h2>
-            <ProcessTimeline />
+            <ScrollAnimation animation="fade-up" scrub={1}>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-24 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white">
+                Our Process
+              </h2>
+            </ScrollAnimation>
+            <ScrollAnimation animation="fade-up" scrub={1.5}>
+              <ProcessTimeline />
+            </ScrollAnimation>
           </div>
         </section>
 
         {/* Projects Section - Interactive Showcase */}
         <section className="relative min-h-screen flex items-center justify-center px-6 py-32 bg-black">
           <div className="max-w-7xl mx-auto w-full">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white">
-              Featured Work
-            </h2>
-            <ProjectShowcase />
+            <ScrollAnimation animation="fade-down" scrub={1}>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white">
+                Featured Work
+              </h2>
+            </ScrollAnimation>
+            <ScrollAnimation animation="scale" scrub={1.5}>
+              <ProjectShowcase />
+            </ScrollAnimation>
           </div>
         </section>
 
@@ -201,71 +223,79 @@ export default function Home() {
 
           <div className="max-w-5xl mx-auto w-full text-center relative z-10">
             {/* Main heading with gradient */}
-            <div className="mb-8">
-              <h2 className="text-5xl md:text-6xl font-bold mb-4">
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white animate-fade-in-up">
-                  Let's Build
-                </span>
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 animate-fade-in-up animation-delay-200">
-                  Something Amazing
-                </span>
-              </h2>
-            </div>
+            <ScrollAnimation animation="fade-up" scrub={1}>
+              <div className="mb-8">
+                <h2 className="text-5xl md:text-6xl font-bold mb-4">
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white">
+                    Let's Build
+                  </span>
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400">
+                    Something Amazing
+                  </span>
+                </h2>
+              </div>
+            </ScrollAnimation>
 
-            <p className="text-lg md:text-xl text-gray-400 mb-16 max-w-3xl mx-auto leading-relaxed">
-              Your vision deserves exceptional execution. Let's turn your ideas into digital experiences that captivate and convert.
-            </p>
+            <ScrollAnimation animation="fade-up" scrub={1.2}>
+              <p className="text-lg md:text-xl text-gray-400 mb-16 max-w-3xl mx-auto leading-relaxed">
+                Your vision deserves exceptional execution. Let's turn your ideas into digital experiences that captivate and convert.
+              </p>
+            </ScrollAnimation>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-              <a
-                href="/pricing"
-                className="group relative px-10 py-5 rounded-full bg-white text-black font-bold text-base overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
-              >
-                <span className="relative z-10">Start Your Project</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 font-bold">
-                  Let's Go →
-                </span>
-              </a>
-              
-              <a
-                href="/about"
-                className="group px-10 py-5 rounded-full bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border-2 border-white/20 text-white font-bold text-base hover:border-white/40 hover:from-white/30 hover:to-white/20 transition-all duration-300 relative overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <span>Get in Touch</span>
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </span>
-              </a>
-            </div>
+            <ScrollAnimation animation="scale" scrub={1.5}>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+                <TransitionLink
+                  href="/pricing"
+                  className="group relative px-10 py-5 rounded-full bg-white text-black font-bold text-base overflow-hidden transition-smooth hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
+                >
+                  <span className="relative z-10">Start Your Project</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 font-bold">
+                    Let's Go →
+                  </span>
+                </TransitionLink>
+                
+                <TransitionLink
+                  href="/about"
+                  className="group px-10 py-5 rounded-full bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border-2 border-white/20 text-white font-bold text-base hover:border-white/40 hover:from-white/30 hover:to-white/20 transition-smooth relative overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <span>Get in Touch</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </TransitionLink>
+              </div>
+            </ScrollAnimation>
 
             {/* Contact info with cards */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <a href="mailto:hello@fysion.com" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="text-2xl mb-3">✉️</div>
-                <p className="text-xs text-gray-500 mb-1">Email Us</p>
-                <p className="text-sm text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                  hello@fysion.com
-                </p>
-              </a>
+            <ScrollAnimation animation="fade-up" scrub={1.8}>
+              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <a href="mailto:hello@fysion.com" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-smooth hover-lift">
+                  <div className="text-2xl mb-3">✉️</div>
+                  <p className="text-xs text-gray-500 mb-1">Email Us</p>
+                  <p className="text-sm text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                    hello@fysion.com
+                  </p>
+                </a>
 
-              <a href="/pricing" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="text-2xl mb-3">💰</div>
-                <p className="text-xs text-gray-500 mb-1">View Plans</p>
-                <p className="text-sm text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                  Pricing & Packages
-                </p>
-              </a>
+                <TransitionLink href="/pricing" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-smooth hover-lift block">
+                  <div className="text-2xl mb-3">💰</div>
+                  <p className="text-xs text-gray-500 mb-1">View Plans</p>
+                  <p className="text-sm text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                    Pricing & Packages
+                  </p>
+                </TransitionLink>
 
-              <a href="/about" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="text-2xl mb-3">📅</div>
-                <p className="text-xs text-gray-500 mb-1">Book a Call</p>
-                <p className="text-sm text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                  Free Consultation
-                </p>
-              </a>
-            </div>
+                <TransitionLink href="/about" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-smooth hover-lift block">
+                  <div className="text-2xl mb-3">📅</div>
+                  <p className="text-xs text-gray-500 mb-1">Book a Call</p>
+                  <p className="text-sm text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                    Free Consultation
+                  </p>
+                </TransitionLink>
+              </div>
+            </ScrollAnimation>
           </div>
         </section>
       </main>
@@ -291,10 +321,10 @@ export default function Home() {
             <div>
               <h3 className="text-white font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="/home" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                <li><a href="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</a></li>
-                <li><a href="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                <li><TransitionLink href="/home" className="text-gray-400 hover:text-white transition-colors">Home</TransitionLink></li>
+                <li><TransitionLink href="/about" className="text-gray-400 hover:text-white transition-colors">About</TransitionLink></li>
+                <li><TransitionLink href="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</TransitionLink></li>
+                <li><TransitionLink href="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</TransitionLink></li>
               </ul>
             </div>
 
@@ -302,10 +332,10 @@ export default function Home() {
             <div>
               <h3 className="text-white font-bold mb-4">Services</h3>
               <ul className="space-y-2">
-                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">Web Design</a></li>
-                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">Development</a></li>
-                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
-                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">Branding</a></li>
+                <li><TransitionLink href="/about" className="text-gray-400 hover:text-white transition-colors">Web Design</TransitionLink></li>
+                <li><TransitionLink href="/about" className="text-gray-400 hover:text-white transition-colors">Development</TransitionLink></li>
+                <li><TransitionLink href="/about" className="text-gray-400 hover:text-white transition-colors">Digital Marketing</TransitionLink></li>
+                <li><TransitionLink href="/about" className="text-gray-400 hover:text-white transition-colors">Branding</TransitionLink></li>
               </ul>
             </div>
 
