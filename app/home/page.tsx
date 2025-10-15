@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import LightRays from "@/components/LightRays";
 import { GooeyText } from "@/components/GooeyText";
 import { BrandedText } from "@/components/BrandedText";
-import { ProcessTimeline } from "@/components/ProcessTimeline";
+import RadialOrbitalTimeline, { defaultProcessData } from "@/components/RadialOrbitalTimeline";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import { TransitionLink } from "@/components/TransitionLink";
@@ -184,17 +184,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How We Work Section - Animated Timeline */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 py-32 bg-black">
-          <div className="max-w-6xl mx-auto w-full">
-            <ScrollAnimation animation="fade-up" scrub={1}>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-24 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white">
-                Our Process
-              </h2>
-            </ScrollAnimation>
-            <ScrollAnimation animation="fade-up" scrub={1.5}>
-              <ProcessTimeline />
-            </ScrollAnimation>
+        {/* How We Work Section - Radial Orbital Timeline */}
+        <section className="relative min-h-screen h-screen flex flex-col items-center justify-start bg-black pt-12">
+          <ScrollAnimation animation="fade-up" scrub={1}>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white z-20 relative">
+              Our Process
+            </h2>
+          </ScrollAnimation>
+          <div className="w-full flex-1 relative">
+            <RadialOrbitalTimeline timelineData={defaultProcessData} />
           </div>
         </section>
 
