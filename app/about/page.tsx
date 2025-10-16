@@ -56,190 +56,210 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 1: Who We Are */}
+        {/* Design Section */}
         <section className="relative min-h-screen flex items-center justify-center px-6 py-32">
-          <div className="max-w-7xl mx-auto w-full">
+          <div className="max-w-5xl mx-auto w-full">
             <ScrollAnimation animation="fade-up" scrub={1}>
-              <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                Who We Are
+              <h2 className="text-5xl md:text-6xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400">
+                Design
               </h2>
-              <p className="text-center text-gray-500 mb-20 text-lg max-w-3xl mx-auto">
-                A team of passionate creatives and technologists united by one mission
-              </p>
             </ScrollAnimation>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <ScrollAnimation animation="fade-up" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="🎨"
-                  title="Creative Minds"
-                  description="Our designers blend artistry with purpose, crafting visual experiences that captivate and inspire. Every pixel tells your brand's story."
-                  gradient="from-purple-500/10 via-purple-500/5 to-transparent"
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fade-up" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="⚡"
-                  title="Tech Innovators"
-                  description="Our developers build with cutting-edge technologies, turning complex ideas into seamless digital solutions that perform flawlessly."
-                  gradient="from-blue-500/10 via-blue-500/5 to-transparent"
-                  delay={100}
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fade-up" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="🚀"
-                  title="Growth Partners"
-                  description="Our strategists combine data-driven insights with creative thinking to accelerate your brand's growth and market presence."
-                  gradient="from-pink-500/10 via-pink-500/5 to-transparent"
-                  delay={200}
-                />
-              </ScrollAnimation>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 2: What We Do */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 py-32">
-          <div className="max-w-7xl mx-auto w-full">
-            <ScrollAnimation animation="fade-down" scrub={1}>
-              <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                What We Do
-              </h2>
-              <p className="text-center text-gray-500 mb-20 text-lg max-w-3xl mx-auto">
-                End-to-end digital solutions that drive real results
-              </p>
-            </ScrollAnimation>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="🖌️"
-                  title="Brand Design"
-                  description="Create memorable brand identities that resonate with your audience and stand out in the market."
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="💻"
-                  title="Web Development"
-                  description="Build responsive, fast, and scalable websites that deliver exceptional user experiences."
-                  delay={100}
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="📱"
-                  title="Mobile Apps"
-                  description="Develop native and cross-platform mobile applications that users love to interact with."
-                  delay={200}
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="📈"
-                  title="Digital Marketing"
-                  description="Drive growth with data-driven marketing strategies across all digital channels."
-                  delay={300}
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="🎯"
-                  title="SEO & Analytics"
-                  description="Optimize your online presence and track performance with advanced analytics tools."
-                  delay={400}
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="scale" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="🛠️"
-                  title="Maintenance & Support"
-                  description="Keep your digital assets running smoothly with ongoing support and updates."
-                  delay={500}
-                />
-              </ScrollAnimation>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Why Choose Us */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 py-32">
-          <div className="max-w-7xl mx-auto w-full">
-            <ScrollAnimation animation="fade-up" scrub={1}>
-              <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                Why Choose Us
-              </h2>
-              <p className="text-center text-gray-500 mb-20 text-lg max-w-3xl mx-auto">
-                What sets us apart in the digital landscape
-              </p>
-            </ScrollAnimation>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-20">
-              <ScrollAnimation animation="fade-right" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="⚡"
-                  title="Fast Delivery"
-                  description="We move quickly without compromising quality. Your project launches on time, every time, with precision and care."
-                  gradient="from-yellow-500/10 via-yellow-500/5 to-transparent"
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fade-up" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="💎"
-                  title="Premium Quality"
-                  description="Excellence is our standard. We craft every detail with meticulous attention, delivering work that exceeds expectations."
-                  gradient="from-cyan-500/10 via-cyan-500/5 to-transparent"
-                  delay={100}
-                />
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fade-left" start="top 85%" end="top 40%">
-                <InfoCard
-                  icon="🤝"
-                  title="True Partnership"
-                  description="Your success is our success. We're invested in your growth and work as an extension of your team."
-                  gradient="from-green-500/10 via-green-500/5 to-transparent"
-                  delay={200}
-                />
-              </ScrollAnimation>
-            </div>
-
-            {/* CTA Section */}
-            <ScrollAnimation animation="scale" scrub={1.5}>
-              <div className="text-center">
-                <div className="inline-block p-12 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-500">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                    Ready to Start Your Project?
+            <div className="space-y-12">
+              <ScrollAnimation animation="fade-up" scrub={1.2}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-purple-400">•</span> Brand Identity
                   </h3>
-                  <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-                    Let's turn your vision into reality. Get in touch and let's create something amazing together.
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    At Fysion, design is more than aesthetics—it's the foundation of every meaningful digital experience. 
+                    We believe that exceptional design creates emotional connections, tells compelling stories, and transforms 
+                    how people interact with brands. Our design philosophy centers on understanding your audience, uncovering 
+                    their needs, and crafting visual solutions that resonate on a deeper level.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <TransitionLink
-                      href="/pricing"
-                      className="px-10 py-4 rounded-full bg-white text-black font-bold hover:scale-105 transition-smooth"
-                    >
-                      View Pricing
-                    </TransitionLink>
-                    <a
-                      href="mailto:hello@fysion.com"
-                      className="px-10 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold hover:bg-white/20 transition-smooth"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
                 </div>
-              </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.3}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-purple-400">•</span> User Experience (UX)
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Our design process begins with research and discovery. We immerse ourselves in your brand's world, analyzing 
+                    market trends, studying user behavior, and identifying opportunities for differentiation. From wireframes to 
+                    prototypes, every interaction is crafted with intention and purpose. We create user journeys that are intuitive, 
+                    engaging, and designed to convert visitors into loyal customers.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.4}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-purple-400">•</span> User Interface (UI)
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    We specialize in modern, innovative interface design that blends creativity with functionality. Whether it's 
+                    crafting a minimalist web interface, designing immersive mobile experiences, or creating eye-catching marketing 
+                    materials, we push boundaries while staying true to timeless design principles. Our team leverages the latest 
+                    design tools and techniques to deliver work that stands out in today's competitive digital landscape.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.5}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-purple-400">•</span> Visual Systems
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Every pixel matters. We obsess over typography, color theory, spacing, and visual hierarchy to create designs 
+                    that are not just visually stunning but also intuitive and accessible. We build comprehensive design systems 
+                    that ensure consistency across all touchpoints. Our goal is to elevate your brand's presence and create lasting 
+                    impressions that drive engagement and build loyalty.
+                  </p>
+                </div>
+              </ScrollAnimation>
+            </div>
+          </div>
+        </section>
+
+        {/* Development Section */}
+        <section className="relative min-h-screen flex items-center justify-center px-6 py-32">
+          <div className="max-w-5xl mx-auto w-full">
+            <ScrollAnimation animation="fade-up" scrub={1}>
+              <h2 className="text-5xl md:text-6xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400">
+                Development
+              </h2>
             </ScrollAnimation>
+
+            <div className="space-y-12">
+              <ScrollAnimation animation="fade-up" scrub={1.2}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-blue-400">•</span> Frontend Development
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Our development team transforms creative visions into powerful digital solutions. We build with precision, 
+                    leveraging cutting-edge technologies like React, Next.js, and Vue.js to create stunning, responsive interfaces 
+                    that work flawlessly across all devices. From pixel-perfect implementations to smooth animations, our frontend 
+                    developers are experts in their craft, committed to writing clean, efficient, and maintainable code.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.3}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-blue-400">•</span> Backend & APIs
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    We specialize in building robust backend systems using Node.js, Python, and cloud-native architectures. 
+                    Our approach is framework-agnostic—we choose the right tools for each project based on your specific requirements, 
+                    scalability needs, and long-term vision. Whether you need a lightning-fast e-commerce platform, a sophisticated 
+                    web application, or custom API integrations, we have the expertise to bring it to life.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.4}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-blue-400">•</span> Performance & Security
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Performance, security, and optimization are at the core of everything we build. We implement best practices 
+                    for SEO, optimize loading times for superior user experiences, and follow security protocols to protect your 
+                    data and users. Our development process includes rigorous testing, code reviews, and continuous integration 
+                    to ensure the highest quality standards and lightning-fast performance.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.5}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-blue-400">•</span> Scalability & Maintenance
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Beyond building, we believe in empowering our clients. We create solutions that are easy to maintain and scale 
+                    as your business grows. Our code is well-documented, our systems are robust, and we provide the training and 
+                    support you need to manage your digital assets confidently. We're not just building software; we're building 
+                    foundations for your digital future with ongoing support and updates.
+                  </p>
+                </div>
+              </ScrollAnimation>
+            </div>
+          </div>
+        </section>
+
+        {/* Marketing Section */}
+        <section className="relative min-h-screen flex items-center justify-center px-6 py-32">
+          <div className="max-w-5xl mx-auto w-full">
+            <ScrollAnimation animation="fade-up" scrub={1}>
+              <h2 className="text-5xl md:text-6xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-orange-400 to-pink-400">
+                Marketing
+              </h2>
+            </ScrollAnimation>
+
+            <div className="space-y-12">
+              <ScrollAnimation animation="fade-up" scrub={1.2}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-pink-400">•</span> SEO & Content Strategy
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    In today's digital landscape, great products need great marketing to reach their full potential. Our SEO and 
+                    content strategies are data-driven, creative, and tailored to your unique business goals. We don't believe in 
+                    one-size-fits-all approaches; instead, we craft custom strategies that align with your brand voice, target 
+                    audience, and market position. We optimize your content for search engines while keeping it engaging for humans.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.3}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-pink-400">•</span> Social Media & Branding
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Our social media strategies span the full digital spectrum—from organic content creation to paid advertising 
+                    campaigns. We start by understanding your market, analyzing your competition, and identifying the channels 
+                    where your audience is most active. Then, we develop comprehensive campaigns that build awareness, drive engagement, 
+                    and convert prospects into loyal customers through authentic storytelling and strategic positioning.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.4}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-pink-400">•</span> Analytics & Performance
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    We leverage analytics and performance metrics to continuously optimize our campaigns. Every decision is backed by 
+                    data, every campaign is tested and refined. We track key performance indicators, analyze user behavior, and adjust 
+                    our strategies in real-time to maximize ROI. Our transparent reporting keeps you informed about what's working and 
+                    where opportunities lie, ensuring every marketing dollar is well spent.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation animation="fade-up" scrub={1.5}>
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <span className="text-pink-400">•</span> Growth & Conversion
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed pl-7">
+                    Beyond traditional digital marketing, we excel at growth hacking and innovative marketing techniques. We create 
+                    viral-worthy content, build engaged communities, and develop marketing funnels that turn visitors into advocates. 
+                    Our goal is not just to increase your visibility, but to build sustainable growth engines that drive long-term 
+                    success for your brand through strategic conversion optimization and retention strategies.
+                  </p>
+                </div>
+              </ScrollAnimation>
+            </div>
           </div>
         </section>
       </main>
